@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Simple Math Quiz</title>
+</head>
+<style>
+td {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+button {
+	height: 30px;
+	width: 150px;
+}
+h1 {
+	margin-top: 100px;
+}
+table.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+<body>
+	<h1 style="text-align: center">Simple Math Quiz</h1>
+	<table class="center">
+		<tr>
+			<td><button onclick="IntAdd()">Integer Addition</button></td>
+			<td><button onclick="IntSub()">Integer Subtraction</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="FloatAdd()">Float Addition</button></td>
+			<td><button onclick="FloatSub()">Float Subtraction</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="ComplexAdd()">Complex Addition</button></td>
+			<td><button onclick="ComplexSub()">Complex Subtraction</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="CheckScore()">Check score</button></td>
+			<td><button onclick="ResetScore()">Reset score</button></td>
+		</tr>
+	</table>
+</body>
+
+<script language="javascript">
+
+    var totalAnswered = 0, noOfRight = 0, noOfWrong = 0;
+	
+	function userInput(string) {
+		return prompt(string);
+	}
+    
+	function IntAdd() {
+        var x = Math.floor(Math.random() * 10), y = Math.floor(Math.random() * 10);
+        if (x <= 0 || y >=	 10) {
+            IntAdd();
+        } else {
+            var output = x + y;
+			var string = "Expected input format: z\n" + x + "+" + y + "=";
+            var result = userInput(string);
+            if (result != null && result != "" && result != "undefined" && result != "null") {
+                if (result == output) {
+                    totalAnswered++;
+                    noOfRight++;
+                    alert("Correct answer.\n Total:     " + totalAnswered + "\n Correct: " + noOfRight + "\n Wrong:  " + noOfWrong);
+                } else {
+                    totalAnswered++;
+                    noOfWrong++;
+                    alert("Wrong answer.\nThe correct answer is " + output + " \n Total:      " + totalAnswered + "\n Correct:  " + noOfRight + "\n Wrong:   " + noOfWrong);
+                }
+            } else {
+				return;
+			}
+        }
+    }
+
+    function IntSub() {
+        var x = Math.floor(Math.random() * 10), y = Math.floor(Math.random() * 10);
+        if (x <= 0 || y >= 10) {
+            IntSub();
+        } else {
+            var output = x - y;
+			var string = "Expected input format: z or -z\n" + x + "-" + y + "=";
+            var result = userInput(string);
+            if (result != null && result != "" && result != "undefined" && result != "null") {
+                if (result == output) {
+                    totalAnswered++;
+                    noOfRight++;
+					alert("Correct answer.\n Total:     " + totalAnswered + "\n Correct: " + noOfRight + "\n Wrong:  " + noOfWrong);
+                } else {
+                    totalAnswered++;
+                    noOfWrong++;
+                    alert("Wrong answer.\nThe correct answer is " + output + " \n Total:      " + totalAnswered + "\n Correct:  " + noOfRight + "\n Wrong:   " + noOfWrong);
+                }
+            } else {
+				return;
+			}
+        }
+    }
+
+    function FloatAdd() {
+        var x = Math.round(Math.random() * 100) / 10;
+        var y = Math.round(Math.random() * 100) / 10; 
+        var a = x % 1;
+        var b = y % 1;
+        if (a == 0 || b == 0 || x <= 0 || y >= 10) {
+            FloatAdd();
+        } else {
+            var output = Math.round((x + y) * 100) / 100;
+			var string = "Expected input format: z.z\n" + x + "+" + y + "=";
+            var result = userInput(string);
+            if (result != null && result != "" && result != "undefined" && result != "null") {
+                if (result == output) {
+                    totalAnswered++;
+                    noOfRight++;
+                    alert("Correct answer.\n Total:     " + totalAnswered + "\n Correct: " + noOfRight + "\n Wrong:  " + noOfWrong);
+                } else {
+                    totalAnswered++;
+                    noOfWrong++;
+                    alert("Wrong answer.\nThe correct answer is " + output + " \n Total:      " + totalAnswered + "\n Correct:  " + noOfRight + "\n Wrong:   " + noOfWrong);
+                }
+            } else {
+				return;
+			}
+        }
+    }
+
+    function FloatSub() {
+        var x = Math.round(Math.random() * 100) / 10;
+        var y = Math.round(Math.random() * 100) / 10; 
+        var a = x % 1;
+        var b = y % 1;
+        if (a == 0 || b == 0 || x <= 0 || y >= 10) {
+            FloatSub();
+        } else {
+            var output = Math.round((x - y) * 100) / 100;
+			var string = "Expected input format: z.z or -z.z\n" + x + "-" + y + "=";
+            var result = userInput(string);
+            if (result != null && result != "" && result != "undefined" && result != "null") {
+                if (result == output) {
+                    totalAnswered++;
+                    noOfRight++;
+                    alert("Correct answer.\n Total:     " + totalAnswered + "\n Correct: " + noOfRight + "\n Wrong:  " + noOfWrong);
+                } else {
+                    totalAnswered++;
+                    noOfWrong++;
+                    alert("Wrong answer.\nThe correct answer is " + output + " \n Total:      " + totalAnswered + "\n Correct:  " + noOfRight + "\n Wrong:   " + noOfWrong);
+                }
+            } else {
+				return;
+			}
+        }
+    }
+
+    function ComplexAdd() {
+        var x1 = Math.ceil(Math.random() * 10), x2 = Math.ceil(Math.random() * 10);
+        var y1 = Math.ceil(Math.random() * 10), y2 = Math.ceil(Math.random() * 10);
+        if (x1 <= 0 || x2 <= 0 || y1 >= 10 || y2 >= 10) {
+            ComplexAdd();
+        } else {
+            var z1 = x1 + y1, z2 = x2 + y2;
+            var a = z1.toString(), b = z2.toString();
+            var output = a.concat("+", b, "i");
+			var string =  "Expected input format: x+yi\n" + x1 + "+" + x2 + "i  +  " + y1 + "+" + y2 + "i  = ";
+            var result = userInput(string);
+            if (result != null && result != "" && result != "undefined" && result != "null") {
+                if (result == output) {
+                    totalAnswered++;
+                    noOfRight++;
+                    alert("Correct answer.\n Total:     " + totalAnswered + "\n Correct: " + noOfRight + "\n Wrong:  " + noOfWrong);
+                } else {
+                    totalAnswered++;
+                    noOfWrong++;
+                    alert("Wrong answer.\nThe correct answer is " + output + " \n Total:      " + totalAnswered + "\n Correct:  " + noOfRight + "\n Wrong:   " + noOfWrong);
+                }
+            } else {
+				return;
+			}
+        }
+    }
+
+    function ComplexSub() {
+        var x1 = Math.ceil(Math.random() * 10), x2 = Math.ceil(Math.random() * 10);
+        var y1 = Math.ceil(Math.random() * 10), y2 = Math.ceil(Math.random() * 10);
+        if (x1 <= 0 || x2 <= 0 || y1 >= 10 || y2 >= 10) {
+            ComplexSub();
+        } else {
+
+            var z1 = x1 - y1, z2 = x2 - y2;
+            var a = z1.toString(), b = z2.toString();
+            if (z2 >= 0) {
+                var output = a.concat("+", b, "i");
+            } else {
+                var output = a.concat("+", "(", b, "i", ")");
+            }
+            var string = "Expected input format: x+yi or -x+yi or x+(-yi) or -x+(-yi)\n" + x1 + "+" + x2 + "i  -  " + y1 + "+" + y2 + "i  = ";
+			var result = userInput(string);
+            if (result != null && result != "" && result != "undefined" && result != "null") {
+                if (result == output) {
+                    totalAnswered++;
+                    noOfRight++;
+                    alert("Correct answer.\n Total:     " + totalAnswered + "\n Correct: " + noOfRight + "\n Wrong:  " + noOfWrong);
+                } else {
+                    totalAnswered++;
+                    noOfWrong++;
+                    alert("Wrong answer.\nThe correct answer is " + output + " \n Total:      " + totalAnswered + "\n Correct:  " + noOfRight + "\n Wrong:   " + noOfWrong);
+                }
+            } else {
+				return;
+			}
+        }
+    }
+
+    function CheckScore() {
+        var result = "\n Total:     " + totalAnswered + "\n Correct: " + noOfRight + "\n Wrong:  " + noOfWrong;
+		alert(result);
+    }
+
+    function ResetScore() {
+        totalAnswered = 0;
+        noOfRight = 0;
+        noOfWrong = 0;
+    }
+</script>
+
+</html>
